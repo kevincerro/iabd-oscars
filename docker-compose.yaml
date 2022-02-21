@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  dataiku:
+    image: dataiku/dss
+    environment:
+      VIRTUAL_HOST: dataiku.docker
+    ports:
+      - "10000:10000"
+    volumes:
+      - dataiku-data:/home/dataiku/dss
+      - ./datasets:/opt/datasets
+    restart: always
+
+volumes:
+  dataiku-data:
